@@ -1,0 +1,25 @@
+{% extends 'main/includes/page.html' %}
+{% load staticfiles %}
+{% block contents %}
+
+<div class="slideshow-container">
+{% for car in car_list %}
+  <div class="mySlides fade">
+    <div class="numbertext"></div>
+    <img src="{{car.img.url}}" style="width:100%">
+    <div class="text">{{car.name}}</div>
+  </div>
+{% endfor %}
+
+<a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+<a class="next" onclick="plusSlides(1)">&#10095;</a>
+<br>
+</div>
+
+<div style="text-align:center">
+	{% for x in car_list %}
+  <span class="dot" onclick="currentSlide({{x.id}})"></span>
+	{% endfor %}
+</div>
+
+{% endblock %}

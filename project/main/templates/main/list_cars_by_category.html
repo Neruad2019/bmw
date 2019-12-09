@@ -1,0 +1,87 @@
+{% extends 'main/includes/page.html' %}
+{% load staticfiles %}
+{% block title %}{{category.name}}{% endblock %}
+
+
+{% block contents %}
+
+{% if category.name == "Sport" %}
+<center>
+<video  width="86%" height="100%" controls="controls" poster="{% static 'image/m5sport.jpg' %}" >
+ <source src="{% static 'image/BMW M5.mp4' %}" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+</video>
+</center>
+{% elif category.name == "Crossover" %}
+<div class="allcontain">
+<div id="carousel-up" class="carousel slide" data-ride="carousel">
+  <div class="carousel-inner " role="listbox">
+    <div class="item active">
+      <img src="{% static 'image/cross6.jpg' %}" alt="oldcar"width="1403"height="672">
+      <div class="carousel-caption">
+        <h2 class="color1"></h2>
+        <p>Make sure your partner is suited up before you go play in the snow <br>
+           </p>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+{% else %}
+
+<div class="allcontain">
+	<div id="carousel-up" class="carousel slide" data-ride="carousel">
+		<div class="carousel-inner " role="listbox">
+			<div class="item active">
+				<img src="{% static 'image/3neww.jpg' %}" alt="oldcar"width="1865"height="1080">
+				<div class="carousel-caption">
+					<h2 class="color1"></h2>
+				     </div>
+			     </div>
+		    </div>
+			</div>
+	</div>
+
+{% endif %}
+
+<div class="allcontain" style="margin-top:30px;">
+	<div class="feturedsection">
+		<h1 class="text-center"><span class="bdots"></span>{{category.name}}<span class="carstxt">Cars</span></h1>
+	</div>
+
+<div class="grid" >
+	<div class="row">
+		{% for car in cars %}
+			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
+				<div class="txthover">
+					<img src="{{car.img.url}}" alt="{{car.id}}" width="338" height="389">
+						<div class="txtcontent">
+							<div class="stars">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+							<div class="simpletxt">
+								<h3 class="name">{{car.name}}</h3>
+								<p>{{car.snippet}}<br>
+								 </p>
+								<button><a href="{% url 'a:detail' name=car.name %}" style="color:white;">READ MORE</a></button><br>
+								<div class="wishtxt">
+								<p class="paragraph1"> Add to Wishlist <span class="glyphicon glyphicon-heart"></span> </p>
+							 	<p class="paragraph2">Compare <span class="icon"><img src="{% static 'image/compicon.png' %}" alt="compicon"></span></p>
+								</div>
+							</div>
+							<div class="stars2">
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+								<div class="glyphicon glyphicon-star"></div>
+							</div>
+						</div>
+				</div>
+			</div>
+
+{% endfor %}
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'main/includes/page.html' %}
+{% block title %} {{car_detail.name}} {% endblock %}
+{% load staticfiles %}
+{% block contents %}
+
+<center><img src="{{car_detail.img.url}}" /></center>
+
+<div class="feturedsection">
+		<h1 class="text-center">{{car_detail.name}}</h1>
+	</div>
+  <div class="row">
+    <h3> {{car_detail.body}} </h3>
+  <div class="column" style="background-color:#0d0d0d; color:#cac8c0;">
+    <h1>Power</h1>
+    <h2 style = "color:#C0C0C0; margin-top:80px font-family: 'Alatsi', sans-serif;">{{car_detail.power}}(h.p) / {{car_detail.watt}} kW </h2>
+  </div>
+  <div class="column" style="background-color:#0f0f0f; color:#cac8c0;">
+    <h2>Acceleration</h2>
+    <h2 style = "color:#C0C0C0; margin-top:80px font-family: 'Alatsi', sans-serif;"> {{car_detail.acceleration}} s</h2>
+  </div>
+  <div class="column" style="background-color:#121212; color:#cac8c0;">
+    <h2>Volume</h2>
+    <h2 style = "color:#C0C0C0; margin-top:80px font-family: 'Alatsi', sans-serif;"> {{car_detail.volume}} (m3)</h2>
+  </div>
+		<div class="row" style = "background-image: linear-gradient( 89.7deg,  rgba(0,0,0,1) -10.7%, rgba(53,92,125,1) 88.8% );">
+			<h3 style = "color:#C0C0C0;">PRICE: {{car_detail.price}}тг  </h3>
+</div>
+
+
+
+
+{% endblock %}
